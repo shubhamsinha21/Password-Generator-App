@@ -17,11 +17,37 @@ function App() {
   const [isPasswordGenerated, setisPasswordGenerated] = useState(false)
   const [lowerCase, setlowerCase] = useState(true)
   const [upperCase, setupperCase] = useState(false)
-  const [numbers, useNumbers] = useState(false)
-  const [symbols, useSymbols] = useState(false)
+  const [numbers, setNumbers] = useState(false)
+  const [symbols, setSymbols] = useState(false)
 
   const generatedPasswordString = (passwordLength: number) => {
-    
+    let charactersList = ''
+    const upperCaseCharacters = 'ABCEDEFGHIJKLMNOPQRSTUVWXYZ'
+    const lowerCaseCharacters = 'abcdefghijklmnopqrstuvwxyz'
+    const digitCharacters = '01235679'
+    const specialCharacters = '!@#$%^&*()_+-=~'
+
+    if(upperCase){
+      charactersList += upperCase
+    }
+    if(lowerCase){
+      charactersList += lowerCase
+    }
+    if(digitCharacters){
+      charactersList += digitCharacters
+    }
+    if(specialCharacters){
+      charactersList += specialCharacters
+    }
+
+    const passwordResult = createPassword(charactersList, passwordLength)
+      setpassword(passwordResult)
+      setisPasswordGenerated(true)
+      setlowerCase(true)
+      setupperCase(false)
+      setNumbers(false)
+      setSymbols(false)
+
   }
  
   const createPassword = (characters:string, passwordLength:number) => {
@@ -35,6 +61,8 @@ function App() {
   }
 
   const resetPassword = () => {
+    setpassword('')
+    setisPasswordGenerated(false)
 
   }
 
