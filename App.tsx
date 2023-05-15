@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, TextInput , TouchableOpacity} from 'react-native'
+import { Formik } from 'formik';
 // form validation
 import * as Yup from 'yup'
 
@@ -66,16 +66,81 @@ function App() {
 
   }
 
+
   return (
-   <View>
-    <Text style={styles.headerText}>Password Generator</Text>
-   </View>
+      <ScrollView keyboardShouldPersistTaps="handled">
+        <SafeAreaView style={styles.appContainer}>
+          <View style={styles.formContainer}>
+            <Text style={styles.title}>Password Generator</Text>
+            <Formik
+       initialValues={{ passwordLength:'' }}
+       validationSchema={passwordSchema}
+      onSubmit={ values =>{
+        console.log(values);
+        generatedPasswordString(+values.passwordLength)
+      }}
+     >
+       {({
+         values,
+         errors,
+         touched,
+         isValid,
+         handleChange,
+         handleSubmit,
+         handleReset,
+       }) => (
+        //empty renderer - <></>
+        <>
+        <View style={styles.inputWrapper}>
+          <View style={styles.inputColumn}>
+            <TextInput style={styles.inputStyle}>
+
+            </TextInput>
+          </View>
+        </View>
+        <View style={styles.inputWrapper}></View>
+        <View style={styles.inputWrapper}></View>
+        <View style={styles.inputWrapper}></View>
+        <View style={styles.inputWrapper}></View>
+
+        <View style={styles.formActions}>
+        <TouchableOpacity>Generate Password</TouchableOpacity>
+        <TouchableOpacity>Reset</TouchableOpacity>
+        </View>
+        </>
+       )}
+     </Formik>
+          </View>
+        </SafeAreaView>
+      </ScrollView>
   )
 }
 
+
+
+
+
 const styles= StyleSheet.create({
-  headerText:{
-    color:'white'
+  appContainer:{
+
+  },
+  formContainer:{
+
+  },
+  title:{
+
+  },
+  inputWrapper:{
+
+  },
+  formActions:{
+
+  },
+  inputColumn:{
+    
+  },
+  inputStyle:{
+    
   }
 })
 export default App
