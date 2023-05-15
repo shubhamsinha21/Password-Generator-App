@@ -13,6 +13,13 @@ const passwordSchema = Yup.object().shape(
 )
 
 function App() {
+  const [password, setpassword] = useState('')
+  const [isPasswordGenerated, setisPasswordGenerated] = useState(false)
+  const [lowerCase, setlowerCase] = useState(true)
+  const [upperCase, setupperCase] = useState(false)
+  const [numbers, useNumbers] = useState(false)
+  const [symbols, useSymbols] = useState(false)
+
   
 
   return (
