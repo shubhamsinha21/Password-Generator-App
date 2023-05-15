@@ -20,7 +20,23 @@ function App() {
   const [numbers, useNumbers] = useState(false)
   const [symbols, useSymbols] = useState(false)
 
-  
+  const generatedPasswordString = (passwordLength: number) => {
+    
+  }
+ 
+  const createPassword = (characters:string, passwordLength:number) => {
+    let result =''
+    for (let index = 0; index < passwordLength; index++) {
+      const characterIndex = Math.round(Math.random() * characters.length)
+      result = result + characters.charAt(characterIndex)
+    }
+    return result;
+    console.log("hitesh")
+  }
+
+  const resetPassword = () => {
+
+  }
 
   return (
    <View>
