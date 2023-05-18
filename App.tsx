@@ -252,6 +252,7 @@ const styles = StyleSheet.create({
   },
   secondaryBtnText: {
     textAlign: 'center',
+    color:'black'
 
   },
   card: {
