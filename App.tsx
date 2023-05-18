@@ -190,6 +190,8 @@ function App() {
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
+    backgroundColor:'#6487e8',
+    minHeight:700
   },
   formContainer: {
     margin: 8,
@@ -220,6 +222,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 1,
     borderColor: '#16213e',
+    fontWeight:'bold'
   },
   heading: {
     fontSize: 15,
